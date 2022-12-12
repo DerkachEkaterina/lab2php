@@ -104,3 +104,109 @@ function task14()
     }
     echo $i . "</br>";
 }
+
+function task15()
+{
+    function printStringReturnNumber(): int
+    {
+        echo "Строка" . "</br>";
+        return 10;
+    }
+
+    $my_num = printStringReturnNumber();
+    echo $my_num . "</br>";
+}
+
+function task16()
+{
+    function increaseEnthusiasm(string $str): string
+    {
+        return $str . '!';
+    }
+
+    echo increaseEnthusiasm('Test') . "</br>";
+
+    function repeatThreeTimes(string $str): string
+    {
+        return $str . $str . $str;
+    }
+
+    echo repeatThreeTimes('Test') . "</br>";
+    echo increaseEnthusiasm(repeatThreeTimes('Test')) . "</br>";
+
+    function cut(string $str, int $num = 10): string
+    {
+        return substr($str, 0, $num);
+    }
+
+    function printArr(array $arr, int $i = 0)
+    {
+        if ($i < count($arr)) {
+            echo "$arr[$i] ";
+            printArr($arr, $i + 1);
+        }
+    }
+
+    function sumOfDigits(int $num): int
+    {
+        $sum = 0;
+        while ($num > 0) {
+            $sum += $num % 10;
+            $num = (int)($num / 10);
+        }
+        if ($sum > 9)
+            return sumOfDigits($sum);
+        return $sum;
+    }
+
+}
+
+function task17()
+{
+    $arr = [];
+    $count = 30;
+    for ($i = 0; $i < $count; $i++) {
+        $arr[$i] = '';
+        for ($j = 0; $j <= $i; $j++) {
+            $arr[$i] .= 'x';
+        }
+    }
+    function arrayFill(string $str, int $num): array
+    {
+        $arr = [];
+        for ($i = 0; $i < $num; $i++) {
+            $arr[$i] = $str;
+        }
+        return $arr;
+    }
+
+    $arr = [[1, 2, 3], [4, 5], [6]];
+    $sum = 0;
+    foreach ($arr as $item) {
+        $sum += array_sum($item);
+    }
+    echo $sum . "</br>";
+
+    $arr = [];
+    for ($i = 0; $i < 3; $i++) {
+        for ($j = 0; $j < 3; $j++) {
+            $arr[$i][$j] = $i * 3 + $j + 1;
+        }
+    }
+    print_r($arr);
+
+    $arr = [2, 5, 3, 9];
+    $result = $arr[0] * $arr[1] + $arr[2] * $arr[3];
+    echo $result . "</br>";
+
+    $user = ['name' => 'Валерий', 'surname' => 'Жмышенко', 'patronymic' => 'Альбертович'];
+    echo $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic'] . "</br>";
+
+    $date = ['year' => date('Y'), 'month' => date('m'), 'day' => date('d')];
+    echo $date['year'] . ' ' . $date['month'] . ' ' . $date['day'] . "</br>";
+
+    $arr = ['a', 'b', 'c', 'd', 'e'];
+    echo count($arr) . "</br>";
+    echo $arr[count($arr) - 1] . "</br>";
+    echo $arr[count($arr) - 2] . "</br>";
+}
