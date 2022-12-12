@@ -210,3 +210,77 @@ function task17()
     echo $arr[count($arr) - 1] . "</br>";
     echo $arr[count($arr) - 2] . "</br>";
 }
+
+function task18()
+{
+    function isSumHigherOf10(int $a, int $b): bool
+    {
+        return $a + $b > 10;
+    }
+
+    function isEqual(int $a, int $b): bool
+    {
+        return $a == $b;
+    }
+
+    $test = 1;
+    echo $test == 0 ? 'верно' : 'неверно';
+
+    $age = 57;
+    if ($age < 10 || $age > 99)
+        echo "Число меньше 10 или больше 99" . "</br>";
+    else {
+        $sum = $age % 10 + (int)($age / 10);
+        if ($sum > 9)
+            echo "Сумма чисел двузначна" . "</br>";
+        else
+            echo "Сумма чисел однозначна" . "</br>";
+    }
+
+    $arr = [5, 6, 7];
+    if (count($arr) == 3)
+        echo array_sum($arr) . "</br>";
+}
+
+function task19()
+{
+    for ($i = 0; $i < 20; $i++) {
+        $str = "";
+        for ($j = 0; $j < $i; $j++) {
+            $str .= 'x';
+        }
+        echo $str . "</br>";
+    }
+}
+
+function task20()
+{
+    $arr = [1, 5, 6, 7];
+    echo array_sum($arr) / count($arr) . "</br>";
+
+    function sum100(int $num): int
+    {
+        return $num == 1 ? 1 : $num + sum100($num - 1);
+    }
+
+    echo sum100(100) . "</br>";
+
+    $sqrt = function ($i): int {
+        return sqrt($i);
+    };
+
+    array_map($sqrt, $arr);
+    print_r($arr);
+
+    $arr = array_fill_keys(range('a', 'z'), 0);
+    foreach ($arr as $key => $value) {
+        $arr[$key] = ord($key) - 96;
+    }
+    print_r($arr);
+
+    $str = "1234567890";
+    $sum = array_sum(str_split($str, 2));
+    echo $sum;
+}
+
+task20();
